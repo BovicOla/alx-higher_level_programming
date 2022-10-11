@@ -6,7 +6,7 @@ def magic_calculation(a, b):
                 raise Exception('Too far')
             else:
                 var += (a**b)/i
-        except (ZeroDivisionError, ValueError):
+        except ZeroDivisionError:
             var = (b + a)
             break
     return var
