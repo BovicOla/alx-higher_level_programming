@@ -1,57 +1,50 @@
-#!/usr/bin/python3
-"""A class Square with a private instance attribute size"""
-
-
-class Square:
-    """defining Square class and validating size value"""
-    def __init__(self, size=0, position=(0, 0)):
+            size (int): The size of the new square.
+            position (int, int): The position of the new square.
+        """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Getter Method"""
-        return self.__size
+        """Get/set the current size of the square."""
+        return (self.__size)
 
     @size.setter
     def size(self, value):
-        """Setter Method"""
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
     def position(self):
-        return position
+        """Get/set the current position of the square."""
+        return (self.__position)
 
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if type(value[0]) != int and type(value) != int:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
-        """A function to calculate area of square"""
-        return self.__size ** 2
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
 
     def my_print(self):
-        """prints in stdout the square with the character #"""
+        """Print the square with the # character."""
         if self.__size == 0:
-            print()
-            return
-        for h in range(0, self.__position[1]):
             print("")
+            return
+
+        [print("") for i in range(0, self.__position[1])]
         for i in range(0, self.__size):
-            for k in range(0, self.__position[0]):
-                print(" ", end="")
-            for j in range(0, self.__size):
-                print("#", end="")
-            print()
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            print("")
+-- INSERT --                                                                114,21        Bot
+
