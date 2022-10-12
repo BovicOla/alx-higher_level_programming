@@ -1,95 +1,68 @@
 #!/usr/bin/python3
+"""
+A node class to define node of a singly linked list,
+and a singly linked list class
+"""
 
 
-class Square:
-    """
-    class square that has attributes:
-        size
-    some attributes are protected from input.
-    """
-    def __init__(self, size=0, position=(0, 0)):
-        """
-        initialization function for our square clasee
-        """
-        if self.__validate_size(size):
-            self.__size = size
-        if self.__validate_pos(position):
-            self.__position = position
+class Node:
+    """Node class to define a node of linked list"""
+    def __init__(self, data, next_node=None):
+        self.__data = data
+        self.__next_node = next_node
 
     @property
-    def size(self):
-        """
-        getter for size attribute
-        """
-        return self.__size
+    def data(self):
+        return self.__data
 
-    @size.setter
-    def size(self, value):
-        """
-        setter for size attribute
-        """
-        if self.__validate_size(value):
-            self.__size = value
+    @data.setter
+    def data(self, value):
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
 
     @property
-    def position(self):
-        """
-        getter for position attribute
-        """
-        return self.__position
+    def next_node(self):
+        return self.__next_node
 
-    @position.setter
-    def position(self, value):
-        """
-        setter for position attribute
-        """
-        if self.__validate_pos(value):
-            self.__position = value
+    @next_node.setter
+    def next_node(self, value):
+        if not isinstance(value, Node) and value is not None:
+            raise TypeError("next_node must be a Node object")
 
-    def area(self):
-        """
-        calculates the area of the square
-        """
-        return self.__size ** 2
 
-    def my_print(self):
-        """
-        prints the square using '#' characters
-        also takes into account position (x, y) offsets
-        """
-        i = 0
-        if self.__size == 0:
-            print()
+class SinglyLinkedList:
+    """Singly linked class"""
+    def __init__(self):
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """Inserts node in increasing order"""
+        if self.__head is None:
+            self.__head = Node(value, None)
             return
-        for i in range(0, self.__position[1]):
-            print()
-        i = 0
-        for i in range(0, self.__size):
-            j = 0
-            x_pad = 0
-            for x_pad in range(0, self.__position[0]):
-                print(" ", end='')
-            for j in range(0, self.__size):
-                print("#", end='')
-            print()
-
-    def __validate_size(self, size):
-        """
-        validates the size, checking for errors
-        """
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
         else:
-            return True
-        return False
+            self.__cur = self.__head
+            self.__prev = None
+            while (self.__cur is not None and self.__cur.data < value):
+                self.__prev = self.__cur
+                self.__cur = self.__cur.next_node
+            if (self.__cur is None):
+                self.__cur = Node(value, None)
+                self.__prev.next_node = self.__cur
+                return
+            if (self.__cur.data > value):
+                if (self.__cur == self.__head):
+                    self.__prev = Node(value, self.__cur)
+                    self.__head = self.__prev
+                    return
+                else:
+                    self.__prev.next_node = Node(value, self.__cur)
 
-    def __validate_pos(self, position):
-        """
-        validates the position, checking for type errors
-        """
-        if not isinstance(position, type((0, 0))):
-            raise TypeError("position must be a tuple of 2 positive integers")
-            return False
-        return True
+    def __str__(self):
+        """Method to print data of instance"""
+        self.__cur = self.__head
+        res = ""
+        while self.__cur is not None:
+            res += "{:d}\n".format(self.__cur.data)
+            self.__cur = self.__cur.next_node
+        return res
