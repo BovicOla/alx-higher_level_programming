@@ -1,82 +1,102 @@
 #!/usr/bin/python3
+"""Defines a class Square"""
+
+
 class Square:
-    """
-    class square that has attributes:
-        size
-    some attributes are protected from input.
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
     """
     def __init__(self, size=0):
+        """initializes the square
+        Args:
+            size (int): size of a side of the square
+        Returns:
+            None
         """
-        initialization function for our square clasee
-        """
-        if self.__validate_size(size):
-            self.__size = size
+        self.size = size
 
-    def __eq__(self, other):
+    def area(self):
+        """calculates the square's area
+        Returns:
+            The area of the square
         """
-        used by == to check equality
-        """
-        return (self.area() == other.area())
-
-    def __ne__(self, other):
-        """
-        used by != to check equality
-        """
-        return (self.area() != other.area())
-
-    def __lt__(self, other):
-        """
-        used by < to check equality
-        """
-        return (self.area() < other.area())
-
-    def __le__(self, other):
-        """
-        used by <= to check equality
-        """
-        return (self.area() <= other.area())
-
-    def __gt__(self, other):
-        """
-        used by > to check equality
-        """
-        return (self.area() > other.area())
-
-    def __ge__(self, other):
-        """
-        used by >= to check equality
-        """
-        return (self.area() >= other.area())
+        return (self.__size) ** 2
 
     @property
     def size(self):
-        """
-        getter for size attribute
+        """getter of __size
+        Returns:
+            The size of the square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """setter of __size
+        Args:
+            value (int): the size of a size of the square
+        Returns:
+            None
         """
-        setter for size attribute
-        """
-        if self.__validate_size(value):
-            self.__size = value
-
-    def area(self):
-        """
-        calculates the area of the square
-        """
-        return self.__size ** 2
-
-    def __validate_size(self, size):
-        """
-        validates the size, checking for errors
-        """
-        if type(size) != int:
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
         else:
-            return True
-        return False
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
+
+    def __lt__(self, other):
+        """Compare if square is less than another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size < other.size
+
+    def __le__(self, other):
+        """Compare if square is less than or equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size <= other.size
+
+    def __eq__(self, other):
+        """Compare if square is equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size == other.size
+
+    def __ne__(self, other):
+        """Compare if square is not equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size != other.size
+
+    def __ge__(self, other):
+        """Compare if square is greater than or equal to another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size >= other.size
+
+    def __gt__(self, other):
+        """Compare if square is greater than another by area
+        Args:
+            other (Square): square to compare against
+        Returns:
+            True or False
+        """
+        return self.size > other.size
