@@ -1,1 +1,1 @@
-This Directory contains file inputs and outputs funtion for python 
+This Directory contains funtions and script for file inputs and outputs for python (JSON)
