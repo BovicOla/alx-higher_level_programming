@@ -1,269 +1,222 @@
 
-0x11. Python - Network #1
+0x10. Python - Network #0
+Bash
 Python
 Scripting
 Back-end
 API
- By: Guillaume, CTO at Holberton School
+ By: Guillaume
  Weight: 1
- Project will start Jan 17, 2023 6:00 AM, must end by Jan 18, 2023 6:00 AM
- was released at Jan 17, 2023 12:00 PM
+ Ongoing second chance project - started Jan 16, 2023 6:00 AM, must end by Jan 20, 2023 6:00 AM
  An auto review will be launched at the deadline
+In a nutshell…
+Auto QA review: 0.0/47 mandatory & 0.0/23 optional
+Altogether:  0.0%
+Mandatory: 0.0%
+Optional: 0.0%
+Calculation:  0.0% + (0.0% * 0.0%)  == 0.0%
 Resources
 Read or watch:
 
-HOWTO Fetch Internet Resources Using urllib Package
-Quickstart with Requests package
-Requests package
+HTTP (HyperText Transfer Protocol) (except: “TRACE” Request Method, “CONNECT” Request Method, Language Negotiation and “Options MultiView” and Character Set Negotiation)
+HTTP Cookies
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 General
-How to fetch internet resources with the Python package urllib
-How to decode urllib body response
-How to use the Python package requests #requestsiswaysimplerthanurllib
-How to make HTTP GET request
-How to make HTTP POST/PUT/etc. request
-How to fetch JSON resources
-How to manipulate data from an external service
+What a URL is
+What HTTP is
+How to read a URL
+The scheme for a HTTP URL
+What a domain name is
+What a sub-domain is
+How to define a port number in a URL
+What a query string is
+What an HTTP request is
+What an HTTP response is
+What HTTP headers are
+What the HTTP message body is
+What an HTTP request method is
+What an HTTP response status code is
+What an HTTP Cookie is
+How to make a request with cURL
+What happens when you type google.com in your browser (Application level)
 Copyright - Plagiarism
 You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 You are not allowed to publish any content of this project.
-- Any form of plagiarism is strictly forbidden and will result in removal from the program.
+Any form of plagiarism is strictly forbidden and will result in removal from the program.
 Requirements
 General
 Allowed editors: vi, vim, emacs
-All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
+- A README.md file, at the root of the folder of the project, is mandatory
+All your scripts will be tested on Ubuntu 20.04 LTS
+All your Bash scripts should be exactly 3 lines long (wc -l file should print 3)
 All your files should end with a new line
-The first line of all your files should be exactly #!/usr/bin/python3
-A README.md file at the root of the repo, containing a description of the repository
-A README.md file, at the root of the folder of this project, is mandatory
-Your code should use the pycodestyle (version 2.8.*)
 All your files must be executable
-The length of your files will be tested using wc
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-You must use get to access to dictionary value by key (it won’t throw an exception if the key doesn’t exist in the dictionary)
+The first line of all your bash files should be exactly #!/bin/bash
+The second line of all your Bash scripts should be a comment explaining what is the script doing
+All curl commands must have the option -s (silent mode)
+All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
+The first line of all your Python files should be exactly #!/usr/bin/python3
+Your code should use the pycodestyle (version 2.8.*)
+All your modules should be documented: python3 -c 'print(__import__("my_module").__doc__)'
+All your classes should be documented: python3 -c 'print(__import__("my_module").MyClass.__doc__)'
+All your functions (inside and outside a class) should be documented: python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
 A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
-Your code should not be executed when imported (by using if __name__ == "__main__":)
+Quiz questions
+Great! You've completed the quiz successfully! Keep going! (Show quiz)
 Tasks
-0. What's my status? #0
+0. cURL body size
 mandatory
-Write a Python script that fetches https://alx-intranet.hbtn.io/status
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that takes in a URL, sends a request to that URL, and displays the size of the body of the response
 
-You must use the package urllib
-You are not allowed to import any packages other than urllib
-The body of the response must be displayed like the following example (tabulation before -)
-You must use a with statement
-guillaume@ubuntu:~/0x11$ ./0-hbtn_status.py | cat -e
-Body response:$
-    - type: <class 'bytes'>$
-    - content: b'OK'$
-    - utf8 content: OK$
-guillaume@ubuntu:~/0x11$ 
-Repo:
-
-GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 0-hbtn_status.py
-   
-1. Response header value #0
-mandatory
-Write a Python script that takes in a URL, sends a request to the URL and displays the value of the X-Request-Id variable found in the header of the response.
-
-You must use the packages urllib and sys
-You are not allow to import packages other than urllib and sys
-The value of this variable is different for each request
-You don’t need to check arguments passed to the script (number or type)
-You must use a with statement
-guillaume@ubuntu:~/0x11$ ./1-hbtn_header.py https://alx-intranet.hbtn.io
-ade2627e-41dd-4c34-b9d9-a0fa0f47b237
-guillaume@ubuntu:~/0x11$ 
-guillaume@ubuntu:~/0x11$ ./1-hbtn_header.py https://alx-intranet.hbtn.io
-6593e1f5-1b4b-4c9f-9c0e-72ab525b850f
-guillaume@ubuntu:~/0x11$ 
-Repo:
-
-GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 1-hbtn_header.py
-   
-2. POST an email #0
-mandatory
-Write a Python script that takes in a URL and an email, sends a POST request to the passed URL with the email as a parameter, and displays the body of the response (decoded in utf-8)
-
-The email must be sent in the email variable
-You must use the packages urllib and sys
-You are not allowed to import packages other than urllib and sys
-You don’t need to check arguments passed to the script (number or type)
-You must use the with statement
+The size must be displayed in bytes
+You have to use curl
 Please test your script in the sandbox provided, using the web server running on port 5000
 
-guillaume@ubuntu:~/0x11$ ./2-post_email.py http://0.0.0.0:5000/post_email hr@holbertonschool.com
-Your email is: hr@holbertonschool.com
-guillaume@ubuntu:~/0x11$ 
+guillaume@ubuntu:~/0x10$ ./0-body_size.sh 0.0.0.0:5000
+10
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 2-post_email.py
-   
-3. Error code #0
+Directory: 0x10-python-network_0
+File: 0-body_size.sh
+    
+1. cURL to the end
 mandatory
-Write a Python script that takes in a URL, sends a request to the URL and displays the body of the response (decoded in utf-8).
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that takes in a URL, sends a GET request to the URL, and displays the body of the response
 
-You have to manage urllib.error.HTTPError exceptions and print: Error code: followed by the HTTP status code
-You must use the packages urllib and sys
-You are not allowed to import other packages than urllib and sys
-You don’t need to check arguments passed to the script (number or type)
-You must use the with statement
+Display only body of a 200 status code response
+You have to use curl
 Please test your script in the sandbox provided, using the web server running on port 5000
 
-guillaume@ubuntu:~/0x11$ ./3-error_code.py http://0.0.0.0:5000
-Index
-guillaume@ubuntu:~/0x11$ ./3-error_code.py http://0.0.0.0:5000/status_401
-Error code: 401
-guillaume@ubuntu:~/0x11$ ./3-error_code.py http://0.0.0.0:5000/doesnt_exist
-Error code: 404
-guillaume@ubuntu:~/0x11$ ./3-error_code.py http://0.0.0.0:5000/status_500
-Error code: 500
-guillaume@ubuntu:~/0x11$ 
+guillaume@ubuntu:~/0x10$ ./1-body.sh 0.0.0.0:5000/route_1 ; echo ""
+Route 2
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 3-error_code.py
-   
-4. What's my status? #1
+Directory: 0x10-python-network_0
+File: 1-body.sh
+    
+2. cURL Method
 mandatory
-Write a Python script that fetches https://alx-intranet.hbtn.io/status
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that sends a DELETE request to the URL passed as the first argument and displays the body of the response
 
-You must use the package requests
-You are not allow to import packages other than requests
-The body of the response must be display like the following example (tabulation before -)
-guillaume@ubuntu:~/0x11$ ./4-hbtn_status.py | cat -e
-Body response:$
-    - type: <class 'str'>$
-    - content: OK$
-guillaume@ubuntu:~/0x11$ 
-Repo:
-
-GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 4-hbtn_status.py
-   
-5. Response header value #1
-mandatory
-Write a Python script that takes in a URL, sends a request to the URL and displays the value of the variable X-Request-Id in the response header
-
-You must use the packages requests and sys
-You are not allow to import other packages than requests and sys
-The value of this variable is different for each request
-You don’t need to check script arguments (number and type)
-guillaume@ubuntu:~/0x11$ ./5-hbtn_header.py https://alx-intranet.hbtn.io
-5e52e160-c822-4669-8b3a-8b3bbca7b090
-guillaume@ubuntu:~/0x11$ 
-guillaume@ubuntu:~/0x11$ ./5-hbtn_header.py https://alx-intranet.hbtn.io
-eaceaf35-bc0f-4f74-994a-7be0728ec654
-guillaume@ubuntu:~/0x11$ 
-Repo:
-
-GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 5-hbtn_header.py
-   
-6. POST an email #1
-mandatory
-Write a Python script that takes in a URL and an email address, sends a POST request to the passed URL with the email as a parameter, and finally displays the body of the response.
-
-The email must be sent in the variable email
-You must use the packages requests and sys
-You are not allowed to import packages other than requests and sys
-You don’t need to error check arguments passed to the script (number or type)
+You have to use curl
 Please test your script in the sandbox provided, using the web server running on port 5000
 
-guillaume@ubuntu:~/0x11$ ./6-post_email.py http://0.0.0.0:5000/post_email hr@holbertonschool.com
-Your email is: hr@holbertonschool.com
-guillaume@ubuntu:~/0x11$ 
+guillaume@ubuntu:~/0x10$ ./2-delete.sh 0.0.0.0:5000/route_3 ; echo ""
+I'm a DELETE request
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 6-post_email.py
-   
-7. Error code #1
+Directory: 0x10-python-network_0
+File: 2-delete.sh
+    
+3. cURL only methods
 mandatory
-Write a Python script that takes in a URL, sends a request to the URL and displays the body of the response.
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that takes in a URL and displays all HTTP methods the server will accept.
 
-If the HTTP status code is greater than or equal to 400, print: Error code: followed by the value of the HTTP status code
-You must use the packages requests and sys
-You are not allowed to import packages other than requests and sys
-You don’t need to check arguments passed to the script (number or type)
+You have to use curl
 Please test your script in the sandbox provided, using the web server running on port 5000
 
-guillaume@ubuntu:~/0x11$ ./7-error_code.py http://0.0.0.0:5000
-Index
-guillaume@ubuntu:~/0x11$ ./7-error_code.py http://0.0.0.0:5000/status_401
-Error code: 401
-guillaume@ubuntu:~/0x11$ ./7-error_code.py http://0.0.0.0:5000/doesnt_exist
-Error code: 404
-guillaume@ubuntu:~/0x11$ ./7-error_code.py http://0.0.0.0:5000/status_500
-Error code: 500
-guillaume@ubuntu:~/0x11$ 
+guillaume@ubuntu:~/0x10$ ./3-methods.sh 0.0.0.0:5000/route_4
+OPTIONS, HEAD, PUT
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 7-error_code.py
-   
-8. Search API
+Directory: 0x10-python-network_0
+File: 3-methods.sh
+    
+4. cURL headers
 mandatory
-Write a Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that takes in a URL as an argument, sends a GET request to the URL, and displays the body of the response
 
-The letter must be sent in the variable q
-If no argument is given, set q=""
-If the response body is properly JSON formatted and not empty, display the id and name like this: [<id>] <name>
-Otherwise:
-Display Not a valid JSON if the JSON is invalid
-Display No result if the JSON is empty
-You must use the package requests and sys
-You are not allowed to import packages other than requests and sys
-Please test your script in the sandbox provided, using the web server running on port 5000. All JSON generated by this server are random.
+A header variable X-School-User-Id must be sent with the value 98
+You have to use curl
+Please test your script in the sandbox provided, using the web server running on port 5000
 
-guillaume@ubuntu:~/0x11$ ./8-json_api.py 
-No result
-guillaume@ubuntu:~/0x11$ ./8-json_api.py a
-[8446] amnirqhtfjq
-guillaume@ubuntu:~/0x11$ ./8-json_api.py 2
-No result
-guillaume@ubuntu:~/0x11$ ./8-json_api.py b
-[7094] bmofakakhke
-guillaume@ubuntu:~/0x11$ 
+guillaume@ubuntu:~/0x10$ ./4-header.sh 0.0.0.0:5000/route_5 ; echo ""
+Hello School!
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 8-json_api.py
-   
-9. My GitHub!
+Directory: 0x10-python-network_0
+File: 4-header.sh
+    
+5. cURL POST parameters
 mandatory
-Write a Python script that takes your GitHub credentials (username and password) and uses the GitHub API to display your id
+Score: 0.0% (Checks completed: 0.0%)
+Write a Bash script that takes in a URL, sends a POST request to the passed URL, and displays the body of the response
 
-You must use Basic Authentication with a personal access token as password to access to your information (only read:user permission is needed)
-The first argument will be your username
-The second argument will be your password (in your case, a personal access token as password)
-You must use the package requests and sys
-You are not allowed to import packages other than requests and sys
-You don’t need to check arguments passed to the script (number or type)
-guillaume@ubuntu:~/0x11$ ./10-my_github.py papamuziko cisfun
-2531536
-guillaume@ubuntu:~/0x11$ ./10-my_github.py papamuziko wrong_pwd
+A variable email must be sent with the value test@gmail.com
+A variable subject must be sent with the value I will always be here for PLD
+You have to use curl
+Please test your script in the sandbox provided, using the web server running on port 5000
+
+guillaume@ubuntu:~/0x10$ ./5-post_params.sh 0.0.0.0:5000/route_6 ; echo ""
+POST params:
+    email: test@gmail.com
+    subject: I will always be here for PLD
+guillaume@ubuntu:~/0x10$ 
+Repo:
+
+GitHub repository: alx-higher_level_programming
+Directory: 0x10-python-network_0
+File: 5-post_params.sh
+    
+6. Find a peak
+mandatory
+Score: 0.0% (Checks completed: 0.0%)
+Technical interview preparation:
+
+You are not allowed to google anything
+Whiteboard first
+Write a function that finds a peak in a list of unsorted integers.
+
+Prototype: def find_peak(list_of_integers):
+You are not allowed to import any module
+Your algorithm must have the lowest complexity (hint: you don’t need to go through all numbers to find a peak)
+6-peak.py must contain the function
+6-peak.txt must contain the complexity of your algorithm: O(log(n)), O(n), O(nlog(n)) or O(n2)
+Note: there may be more than one peak in the list
+guillaume@ubuntu:~/0x10$ cat 6-main.py
+#!/usr/bin/python3
+""" Test function find_peak """
+find_peak = __import__('6-peak').find_peak
+
+print(find_peak([1, 2, 4, 6, 3]))
+print(find_peak([4, 2, 1, 2, 3, 1]))
+print(find_peak([2, 2, 2]))
+print(find_peak([]))
+print(find_peak([-2, -4, 2, 1]))
+print(find_peak([4, 2, 1, 2, 2, 2, 3, 1]))
+
+guillaume@ubuntu:~/0x10$ ./6-main.py
+6
+3
+2
 None
-guillaume@ubuntu:~/0x11$ 
+2
+4
+guillaume@ubuntu:~/0x10$ wc -l 6-peak.txt 
+2 6-peak.txt
+guillaume@ubuntu:~/0x10$ 
 Repo:
 
 GitHub repository: alx-higher_level_programming
-Directory: 0x11-python-network_1
-File: 10-my_github.py
-   
+Directory: 0x10-python-network_0
+File: 6-peak.py, 6-peak.txt
+    
 Copyright © 2023 ALX, All rights reserved.
